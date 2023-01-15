@@ -1,0 +1,16 @@
+def shoelace(points):
+    n = len(points) # number of points in the polygon
+    area = 0.0  # variable to store the area of the polygon
+    for i in range(n):
+        j = (i + 1) % n # next point in the polygon, wrapping around to 0 if we reach the end
+        area += points[i][0] * points[j][1] # add the x-coordinate of the current point multiplied by the y-coordinate of the next point
+        area -= points[j][0] * points[i][1] # subtract the x-coordinate of the next point multiplied by the y-coordinate of the current point
+    area = abs(area) / 2.0 # divide by 2 to get the final area
+    return area
+
+# Example usage
+points = [(0,0), (0,1), (1,1), (1,0)]
+
+print(shoelace(points))
+
+#Code written by Atrin Mazinani
